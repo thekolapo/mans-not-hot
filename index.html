@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>mans not hot</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">  
+
+
+  <!-- Custom Fonts -->
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <script src="pixi.min.js"></script>
+  <script src="soundcloud-test.js"></script>
+  <script src="sound.js"></script>
+</head>
+<body>
+  <script src="mnh.js"></script>
+  <script type="text/javascript">
+    sounds.load(["sounds/pong.mp3"]);
+
+    sounds.whenLoaded = setup;
+
+    function setup() {
+      var music = sounds["sounds/pong.mp3"];
+      music.loop = true;
+      music.play();
+    }
+    
+  </script>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-1">
+          <div class="offset"></div>
+          <a class="icons" href=" " target="_blank"><i class="fa fa-volume-up"></i></a>
+          <br/>
+          <a class="icons" href=" " target="_blank"><i class="fa fa-twitter circle"></i></a>
+          <br/>
+          <a class="icons" href=" " target="_blank"><i class="fa fa-instagram"></i></a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
