@@ -89,23 +89,23 @@ function setup(){
 
 }
 
-var af = 0, df = 1.7, maxFrame = 15;
+// var af = 0, df = 1.7, maxFrame = 15;
 
-function gameLoop() {
-    var f = requestAnimationFrame(gameLoop);
-    if (af >= maxFrame)
-    {
-        af = 0;
-    } 
-    else {
-        af += 1/df;
-    }
-    dancerTexture.frame = run[Math.floor(af)];
-    dancer.position.set(window.innerWidth/2, window.innerHeight/heightDivider);
-    app.stage.addChild(dancer);
-}
+// function gameLoop() {
+//     var f = requestAnimationFrame(gameLoop);
+//     if (af >= maxFrame)
+//     {
+//         af = 0;
+//     } 
+//     else {
+//         af += 1/df;
+//     }
+//     dancerTexture.frame = run[Math.floor(af)];
+//     dancer.position.set(window.innerWidth/2, window.innerHeight/heightDivider);
+//     app.stage.addChild(dancer);
+// }
 
-gameLoop();
+// gameLoop();
 
 
 // var Container = PIXI.Container,
