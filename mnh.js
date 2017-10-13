@@ -79,9 +79,8 @@ function setup(){
         run.push(new PIXI.Rectangle(x, 0, 90, 175));
         x += 90;
     }
-
+    // run.push (new PIXI.Rectangle(0,0,90,175),new PIXI.Rectangle(90,0,90,175),new PIXI.Rectangle(190,0,90,175),new PIXI.Rectangle(290,0,90,175), new PIXI.Rectangle(190,0,90,175));
     
-    run.push (new PIXI.Rectangle(0,0,90,175),new PIXI.Rectangle(90,0,90,175),new PIXI.Rectangle(190,0,90,175),new PIXI.Rectangle(290,0,90,175), new PIXI.Rectangle(190,0,90,175));
     dancerTexture.frame = run[0];
     dancer = new Sprite(dancerTexture);   
     dancer.position.set(window.innerWidth/2, window.innerHeight/1.4);
@@ -90,6 +89,22 @@ function setup(){
     app.stage.addChild(dancer);
 
 }
+var af = 0, df = 1.7, maxFrame = 5;
+function gameLoop() {
+    var f = requestAnimationFrame(gameLoop);
+    if (af >= maxFrame)
+    {
+      af = 0;
+    } else {
+      af += 1/df;
+    }
+    dancerTexture.frame = run[Math.floor(af)];
+    dancer.position.set(window.innerWidth/2, window.innerHeight/2);
+    app.stage.addChild(dancer);
+  }
+  
+//   Start the game loop
+  gameLoop();
 
 // var af = 0, df = 1.7, maxFrame = 15;
 
