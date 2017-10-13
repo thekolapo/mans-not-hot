@@ -62,7 +62,7 @@ var heightDivider = 1.4;
 var loader = PIXI.loader,
 Sprite = PIXI.Sprite;;
 
-loader.add("dancerImage", "shaqq.png").load(setup);
+loader.add("dancerImage", "mario-jump.png").load(setup);
 
 function setup(){
     if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -75,10 +75,10 @@ function setup(){
     dancerTexture = loader.resources["dancerImage"].texture;
 
     var x = 0;
-     for(var i = 0; i < 15; i++){
-        run.push(new PIXI.Rectangle(x, 0, 788, 501));
-        x += 788;
-     }
+    for(var i = 0; i < 4; i++){
+        run.push(new PIXI.Rectangle(x, 0, 90, 175));
+        x += 90;
+    }
     // run.push (new PIXI.Rectangle(0,0,90,175),new PIXI.Rectangle(90,0,90,175),new PIXI.Rectangle(190,0,90,175),new PIXI.Rectangle(290,0,90,175), new PIXI.Rectangle(190,0,90,175));
     
     dancerTexture.frame = run[0];
@@ -89,7 +89,7 @@ function setup(){
     app.stage.addChild(dancer);
 
 }
-var af = 0, df = 1.7, maxFrame = 15;
+var af = 0, df = 1.7, maxFrame = 5;
 function gameLoop() {
     var f = requestAnimationFrame(gameLoop);
     if (af >= maxFrame)
