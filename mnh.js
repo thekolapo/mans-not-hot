@@ -55,7 +55,7 @@
 // //   Start the game loop
 //   gameLoop();
 
-var app = new PIXI.Application(window.innerWidth, window.innerHeight, {antialias: false, transparent: true });
+var app = new PIXI.Application(window.innerWidth, window.innerHeight, {transparent: true });
 document.body.appendChild(app.view);
 var dancer, run = [], dancerTexture;
 var heightDivider = 1.4; 
@@ -81,10 +81,10 @@ function setup(){
     }
 
     dancerTexture.frame = run[0];
-    dancer = new Sprite(dancerTexture);
-    dancer.position.set(window.innerWidth/2, window.innerHeight/heightDivider);
-    dancer.scale.set(1, 1);
-    dancer.anchor.set(0.5, 0.5);
+    dancer = PIXI.Sprite.fromImage('2-01 (2).png')    
+    dancer.position.set(window.innerWidth/2, window.innerHeight/1.4);
+    dancer.scale.set(0.5, 0.5);
+    dancer.anchor.set(0.5);
     app.stage.addChild(dancer);
 
 }
