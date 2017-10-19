@@ -1,4 +1,5 @@
 var myContext = new (window.AudioContext || window.webkitAudioContext)();
+var music;
 // function loadAudio(){
     //Load the sounds
     sounds.load([
@@ -11,9 +12,9 @@ var myContext = new (window.AudioContext || window.webkitAudioContext)();
 // }
 
 function setup() {
-    var music = sounds["sounds/pong.mp3"];
+    music  = sounds["sounds/pong.mp3"];
     music.loop = true;
-    music.play();
+    // music.play();
 }
 
 window.addEventListener('touchstart', function() {
@@ -26,7 +27,8 @@ window.addEventListener('touchstart', function() {
         source.connect(myContext.destination);
     
         // play the file
-        source.noteOn(0);
+        source.start(0);
         console.log(000000);
+        music.play();
     
     }, false);
