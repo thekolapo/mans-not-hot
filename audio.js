@@ -1,3 +1,4 @@
+var myContext = new (window.AudioContext || window.webkitAudioContext)();
 // function loadAudio(){
     //Load the sounds
     sounds.load([
@@ -14,3 +15,18 @@ function setup() {
     music.loop = true;
     music.play();
 }
+
+window.addEventListener('touchstart', function() {
+        // create empty buffer
+        var buffer = myContext.createBuffer(1, 1, 22050);
+        var source = myContext.createBufferSource();
+        source.buffer = buffer;
+    
+        // connect to output (your speakers)
+        source.connect(myContext.destination);
+    
+        // play the file
+        source.noteOn(0);
+        console.log(000000);
+    
+    }, false);
