@@ -106,22 +106,22 @@ window.addEventListener("resize", function(){
 
 var af = 0, df = 1.7, maxFrame = 15;
 
-function gameLoop() {
-    var f = requestAnimationFrame(gameLoop);
-    if (af >= maxFrame)
-    {
-      af = 0;
-    } 
-    else {
-      af += 1/df;
-    }
-    shaqTexture.frame = run[Math.floor(af)];
-    shaq.position.set(window.innerWidth/2, window.innerHeight/heightDivider);
-    renderer.render(stage);
-  }
+// function gameLoop() {
+//     var f = requestAnimationFrame(gameLoop);
+//     if (af >= maxFrame)
+//     {
+//       af = 0;
+//     } 
+//     else {
+//       af += 1/df;
+//     }
+//     shaqTexture.frame = run[Math.floor(af)];
+//     shaq.position.set(window.innerWidth/2, window.innerHeight/heightDivider);
+//     renderer.render(stage);
+//   }
   
- // Start the game loop
-  gameLoop();
+//  // Start the game loop
+//   gameLoop();
 
   function frown(){
       

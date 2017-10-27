@@ -15,7 +15,7 @@ var finishedLoadingAudio = false;
 function setup() {
     music  = sounds["sounds/pong.mp3"];
     music.loop = true;
-    // music.play();
+    music.play();
     finishedLoadingAudio = true;
 
     var VARONE = { myvalue: true };
