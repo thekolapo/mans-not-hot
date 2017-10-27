@@ -4,7 +4,7 @@ var finishedLoadingAudio = false;
 // function loadAudio(){
     //Load the sounds
     sounds.load([
-    "sounds/pong.mp3"
+    "sounds/often.mp3"
     ]);
 
     //Assign the callback function that should run
@@ -13,7 +13,7 @@ var finishedLoadingAudio = false;
 // }
 
 function setup() {
-    music  = sounds["sounds/pong.mp3"];
+    music  = sounds["sounds/often.mp3"];
     music.loop = true;
     finishedLoadingAudio = true;
 
