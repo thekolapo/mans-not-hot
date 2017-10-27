@@ -15,7 +15,6 @@ var finishedLoadingAudio = false;
 function setup() {
     music  = sounds["sounds/pong.mp3"];
     music.loop = true;
-    music.play();
     finishedLoadingAudio = true;
 
     var VARONE = { myvalue: true };
@@ -23,10 +22,11 @@ function setup() {
     // if(VAR.myvalue){
     //     document.getElementById('overlay-main').style.display = 'none';
     // }
-    // setTimeout(hideLoadingScreen, 1000);
+    setTimeout(hideLoadingScreen, 1000);
 }
 
 function hideLoadingScreen(){
+    music.play();
     document.getElementById('overlay-main').style.display = 'none';
 }
 
