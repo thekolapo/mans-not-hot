@@ -12,34 +12,53 @@
 
   <script src="pixi.min.js"></script>
   <script src="sound.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+      $(".btn1").click(function(){
+          $("#overlay-main").fadeOut(400);
+      });
+      $(".btn2").click(function(){
+          $("#overlay-main").fadeIn(1000);
+      });
+  });
+  </script>
 </head>
 <body>
   <script src="mnh.js"></script>
   <script src="audio.js"></script>
-  <!-- <script type="text/javascript">
-    sounds.load(["sounds/pong.mp3"]);
-
-    sounds.whenLoaded = setup;
-
-    function setup() {
-      var music = sounds["sounds/pong.mp3"];
-      music.loop = true;
-      // music.play();
-    }
-    
-  </script> -->
-  <section id="overlay">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-1">
-          <div class="offset"></div>
-          <a class="icons" href=" " target="_blank"><i class="fa fa-volume-up"></i></a>
-          <br/>
-          <a class="icons" href=" " target="_blank"><i class="fa fa-twitter circle"></i></a>
-          <br/>
-          <a class="icons" href=" " target="_blank"><i class="fa fa-instagram"></i></a>
+  <section>
+      <div class="center">
+        <div id="sound-on" class="wrapper">
+          <a id="first" class="icons" onclick="mute()" href="javascript:void(0);"><i class="fa fa-volume-up"></i></a>
+          <div id="second" class="audio-text-options">Sound | On</div>
+        </div>
+        <div id="sound-off" class="wrapper">
+          <a id="first" class="icons" onclick="unmute()" href="javascript:void(0);"><i class="fa fa-volume-off"></i></a>
+          <div id="second" class="audio-text-options">Sound | Off</div> 
+        </div>
+        <br/>
+        <div class="wrapper">
+          <a id="first" class="icons" href=" " target="_blank"><i class="fa fa-twitter circle"></i></a>
+          <div id="second" class="designer-name">Designed by kolapo</div> 
+        </div>
+        <br/>
+        <div class="wrapper">
+          <a id="first" class="icons" href="#"  target="_blank"><i class="fa fa-instagram"></i></a>
+          <div id="second" class="artist-name">Illustrations by duru</div> 
+        </div>
       </div>
-    </div>
+  </section>
+  <section id="overlay-main">
+      <button class="btn1">Fade out</button>
+      <button class="btn2">Fade in</button>
+      
+      <div class="load">
+        <div class="spinner">
+          <div class="bubble-1"></div>
+          <div class="bubble-2"></div>
+        </div>
+      </div>
   </section>
 </body>
 </html>

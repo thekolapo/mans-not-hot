@@ -15,8 +15,8 @@ html,body {
 body{
     /* overflow: hidden; */
     max-height: 100%;
-    /* background: rgb(150, 22, 224); */
-    background: rgb(245, 0, 102);
+    background: rgb(150, 22, 224);
+    /* background: rgb(245, 0, 102); */
     /* background: #466368; */
     /* background: #DA2863; */
     /* background: #2358b7; */
@@ -37,27 +37,53 @@ body{
     margin-bottom: 35px;
 }
 
-.container{
-    margin-left: 100px;
-    z-index: 500;
-    /* margin-top: 400px; */
+.center{
+    position: absolute;
+    width: 50%;
+    top: 40%;
+    left: 5%;
 }
 
-.offset{
-    margin-top: 500px;
-}
-
-#overlay {
+#overlay-main {
+    /* background:	#FFA07A; */
+    /* background:  #2358b7; */
+    background: #3E5BDD;
+    /* background: rgb(150, 22, 224); */
     position: fixed; /* Sit on top of the page content */
-    display: block; /* Hidden by default */
+    display: inline-block;
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
     top: 0; 
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    /* cursor: pointer; Add a pointer on hover */
+    z-index: 4;
+    vertical-align:middle;
+}
+@-webkit-keyframes typing { from { width: 0; } }
+@-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
+
+.first-text{
+    font-size: 60px;
+    margin-top: 300px;
+    color: white;
+}
+
+.first-text > p{
+    width: 30em;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    white-space: nowrap;
+    -webkit-animation: type 5s steps(50, end);
+    animation: type 5s steps(50, end);
+}
+
+@keyframes type{
+    from { width: 0; }
+}
+
+@-webkit-keyframes type{
+    from { width: 0; }
 }
 
 /* .circle {
@@ -65,4 +91,110 @@ body{
     border-radius: 20px;
     height: 40px;
     width: 40px;
+}
+
+
+/////////////////////////////////////
+/* -----------------------------------------
+  =Default css to make the demo more pretty
+-------------------------------------------- */
+
+
+.spinner {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 50%;
+    left: 50%;
+}
+
+.bubble-1,
+.bubble-2 {
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.bubble-2 {
+    top: auto;
+    bottom: 0;
+}
+
+
+.load .spinner {animation: loading 2s linear infinite;}
+.load .bubble-1, .load .bubble-2 {animation: bounce 2s ease-in-out infinite;}
+.load .bubble-2 {animation-delay: -1.0s;}
+
+
+@keyframes loading {
+    100% {transform: rotate(360deg);}
+}
+
+@keyframes bounce  {
+  0%, 100% {transform: scale(0.0);}
+  50% {transform: scale(1.0);}
+}
+
+
+
+
+
+
+.wrapper {
+    width: 200px;
+    height: 40px;
+    /* border: 1px solid black; */
+    overflow: hidden; /* will contain if #first is longer than #second */
+}
+#first {
+    width: 30px;
+    height: 100%;
+    float:left; /* add this */
+    /* border: 1px solid red; */
+}
+#second {
+    padding-top: 7px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: white;
+    height: 100%;
+    /* border: 1px solid green; */
+    overflow: hidden; /* if you don't want #second to wrap below #first */
+}
+
+#sound-off{
+    display: none;
+}
+
+.designer-name{
+    display: none;
+}
+
+.artist-name{
+    display: none;
+}
+
+.audio-text-options{
+    display: none;
+}
+
+a:hover, a:hover + .designer-name{
+    color: white;
+    display: block;
+}
+
+a:hover, a:hover + .artist-name{
+    color: white;
+    display: block;
+}
+
+a:hover, a:hover + .audio-text-options{
+    color: white;
+    display: block;
+}
+
+a:visited{
+    color: white;
 }
