@@ -23,7 +23,7 @@ function setup() {
     // if(VAR.myvalue){
     //     document.getElementById('overlay-main').style.display = 'none';
     // }
-    setTimeout(hideLoadingScreen, 1000);
+    // setTimeout(hideLoadingScreen, 1000);
 }
 
 function hideLoadingScreen(){
