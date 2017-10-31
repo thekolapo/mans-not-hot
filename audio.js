@@ -22,18 +22,21 @@ function setup() {
     // if(VAR.myvalue){
     //     document.getElementById('overlay-main').style.display = 'none';
     // }
-    setTimeout(hideLoadingScreen, 1000);
+    setTimeout(hideLoadingScreen, 100);
 }
 
 function hideLoadingScreen(){
-    music.play();
-    document.getElementById('overlay-main').style.display = 'none';
+    // music.play();
+    $("#overlay-main").fadeOut(700);
+    // document.getElementById('overlay-main').style.display = 'none';
 }
 
 function mute() {
     document.getElementById('sound-on').style.display = 'none';
     document.getElementById('sound-off').style.display = 'block';
-  }
+
+    music.pause();
+}
 
 function unmute() {
     document.getElementById('sound-off').style.display = 'none';

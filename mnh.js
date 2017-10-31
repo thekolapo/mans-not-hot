@@ -16,13 +16,16 @@ renderer.autoResize = true;
 
 // loader.add("shaqImage", "2-01 (2).png").load(setup);
 
-var shaq, run = [], shaqTexture;
+var shaq, run = [], runFrown = [], shaqTexture, shaqTextureFrown;
 
-var heightDivider = 1.4; 
+var heightDivider = 1.55; 
 
 var finishedLoadingTextures = false;
 
-loader.add("shaqImage", "shaqq.png").load(setup);
+var frowning = false;
+
+// loader.add("shaqImage", "shaqq.png").add("shaq-frown", "shaq-frown.png").load(setup);
+loader.add(["shaq.png", "shaq-frown.png"]).load(setup);
 
 function setup() {
     if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -32,19 +35,39 @@ function setup() {
         heightDivider = 1.29;
     }
 
-    shaqTexture = loader.resources["shaqImage"].texture;
+    shaqTexture = loader.resources["shaq.png"].texture;
     // run.push (new PIXI.Rectangle(0,0,90,500),new PIXI.Rectangle(90,0,90,500),new PIXI.Rectangle(190,0,90,175),new PIXI.Rectangle(290,0,90,175), new PIXI.Rectangle(190,0,90,175));
-  // run.push (new PIXI.Rectangle(0,0,788,501), new PIXI.Rectangle(788,0,788,501)); 
-  var x = 0;
-  for(var i = 0; i < 15; i++){
-    run.push(new PIXI.Rectangle(x, 0, 788, 501));
-    x += 788;
-  }
+//   run.push (new PIXI.Rectangle(0,0,788,501), new PIXI.Rectangle(788,0,788,501));
+//   var x = 0;
+//   for(var i = 0; i < 15; i++){
+//    //run.push(new PIXI.Rectangle(x, 0, 788, 501));
+//     x += 788;
+//   }
+
+    var x = 0, y = 0;
+    for(var i = 0; i < 15; i++){
+        run.push(new PIXI.Rectangle(x, y, 700, 700));
+        x += 700;
+
+        if(x == 3500){
+            x = 0;
+            y += 700;
+        }
+    }
+
+
+//   shaqTextureFrown = loader.resources["shaq-frown.png"].texture;
+//   x = 0;
+//   for(var i = 0; i < 15; i++){
+//     runFrown.push(new PIXI.Rectangle(x, 0, 788, 501));
+//     x += 788;
+//   }
+
   shaqTexture.frame = run[0];
   shaq = new Sprite(shaqTexture);
   shaq.position.set(window.innerWidth/2, window.innerHeight/heightDivider);
-  // shaq.scale.set(0.39, 0.39);
-  shaq.scale.set(1.6, 1.6);
+//   shaq.scale.set(0.39, 0.39);
+  shaq.scale.set(1.4, 1.4);
   shaq.anchor.set(0.5, 0.5);
   stage.addChild(shaq);
   renderer.render(stage);
@@ -96,7 +119,7 @@ window.addEventListener("resize", function(){
 
     shaq.position.set(window.innerWidth/2, window.innerHeight/heightDivider);
 
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         return;
     }
 
@@ -109,8 +132,8 @@ var af = 0, df = 1.7, maxFrame = 15;
 function gameLoop() {
     var f = requestAnimationFrame(gameLoop);
     if (af >= maxFrame)
-    {
-      af = 0;
+    {    
+        af = 0;
     } 
     else {
       af += 1/df;
@@ -118,11 +141,59 @@ function gameLoop() {
     shaqTexture.frame = run[Math.floor(af)];
     shaq.position.set(window.innerWidth/2, window.innerHeight/heightDivider);
     renderer.render(stage);
+
+    // if(frowning){
+    //     cancelAnimationFrame(f);
+    //     frowning = false;
+    //     setFrownIsh();
+    //     return;
+    // }
   }
   
  // Start the game loop
-  gameLoop();
+gameLoop();
 
-  function frown(){
-      
-  }
+function frown(){
+    frowning = true;
+   
+}
+
+function setFrownIsh(){
+    shaqTextureFrown.frame = runFrown[0];
+    stage.removeChild(shaq);
+    shaq = new Sprite(shaqTextureFrown);
+    shaq.position.set(window.innerWidth/2, window.innerHeight/heightDivider);
+    // shaq.scale.set(0.39, 0.39);
+    shaq.anchor.set(0.5, 0.5);
+    stage.addChild(shaq);
+    renderer.render(stage);
+    shaq.scale.set(1.6, 1.6);
+
+    frownLoop();
+}
+
+function frownLoop() {
+    var f = requestAnimationFrame(frownLoop);
+    if (af >= maxFrame)
+    {
+        af = 0;
+    } 
+    else {
+      af += 1/df;
+    }
+    shaqTextureFrown.frame = runFrown[Math.floor(af)];
+    shaq.position.set(window.innerWidth/2, window.innerHeight/heightDivider);
+    renderer.render(stage);
+}
+
+function splitSpriteSheet(){
+    shaqTexture = loader.resources["shaqq.png"].texture;
+    var x = 0;
+    for(var i = 0; i < 15; i++){
+        run.push(new PIXI.Rectangle(x, 0, 788, 501));
+        x += 788;
+    }
+
+}
+
+
