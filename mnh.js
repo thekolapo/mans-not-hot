@@ -29,7 +29,7 @@ loader.add(["shaq.png", "shaq-frown.png"]).load(setup);
 
 function setup() {
     if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        heightDivider = 1.5;
+        heightDivider = 1.6;
         scale = 2;
     }
     else if(/iPad/i.test(navigator.userAgent)){
