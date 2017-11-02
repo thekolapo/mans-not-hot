@@ -138,10 +138,6 @@ body{
 }
 
 
-
-
-
-
 .wrapper {
     width: 200px;
     height: 40px;
@@ -198,3 +194,73 @@ a:hover, a:hover + .audio-text-options{
 a:visited{
     color: white;
 }
+  
+@media only screen and (max-device-width: 1024px) {
+    .wrapper {
+        width: 200px;
+        height: 70px;
+        overflow: hidden; /* will contain if #first is longer than #second */
+    }
+
+    .icons{
+        color: rgba(255, 255, 255, 0.93);
+        /* color: #BCD4F1; */
+        display: inline-block;
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-device-width: 960px) {
+    .icons{
+        color: rgba(255, 255, 255, 0.93);
+        /* color: #BCD4F1; */
+        display: inline-block;
+        font-size: 37px;
+        margin-bottom: 35px;
+    }
+}
+
+
+@media only screen and (max-device-width: 529px) {
+    .wrapper {
+        width: 200px;
+        height: 90px;
+        overflow: hidden; /* will contain if #first is longer than #second */
+    }
+
+    .icons{
+        color: rgba(255, 255, 255, 0.93);
+        /* color: #BCD4F1; */
+        display: inline-block;
+        font-size: 48px;
+        margin-bottom: 35px;
+    }
+    
+}
+
+@media only screen and (max-device-width: 360px) {
+    .wrapper {
+        width: 200px;
+        height: 100px;
+        overflow: hidden; /* will contain if #first is longer than #second */
+    }
+
+    .icons{
+        color: rgba(255, 255, 255, 0.93);
+        /* color: #BCD4F1; */
+        display: inline-block;
+        font-size: 50px;
+        margin-bottom: 35px;
+    }
+    
+}
+
+@media only screen and (max-device-width: 736px) {
+}
+
+@media only screen and (max-device-width: 600px) {
+}
+
+
+  
+  

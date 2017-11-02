@@ -18,7 +18,7 @@ renderer.autoResize = true;
 
 var shaq, run = [], runFrown = [], shaqTexture, shaqTextureFrown;
 
-var heightDivider = 1.55; 
+var heightDivider = 1.55, scale = 1.4; 
 
 var finishedLoadingTextures = false;
 
@@ -29,10 +29,12 @@ loader.add(["shaq.png", "shaq-frown.png"]).load(setup);
 
 function setup() {
     if( /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        heightDivider = 1.2;
+        heightDivider = 1.4;
+        scale = 2;
     }
     else if(/iPad/i.test(navigator.userAgent)){
-        heightDivider = 1.29;
+        heightDivider = 1.44;
+        scale = 1.7;
     }
 
     shaqTexture = loader.resources["shaq.png"].texture;
@@ -67,7 +69,7 @@ function setup() {
   shaq = new Sprite(shaqTexture);
   shaq.position.set(window.innerWidth/2, window.innerHeight/heightDivider);
 //   shaq.scale.set(0.39, 0.39);
-  shaq.scale.set(1.4, 1.4);
+  shaq.scale.set(scale, scale);
   shaq.anchor.set(0.5, 0.5);
   stage.addChild(shaq);
   renderer.render(stage);
