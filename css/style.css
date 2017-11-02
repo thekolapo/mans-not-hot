@@ -241,7 +241,7 @@ a:visited{
 @media only screen and (max-device-width: 360px) {
     .wrapper {
         width: 200px;
-        height: 115px;
+        height: 118px;
         overflow: hidden; /* will contain if #first is longer than #second */
     }
 
@@ -249,7 +249,7 @@ a:visited{
         color: rgba(255, 255, 255, 0.93);
         /* color: #BCD4F1; */
         display: inline-block;
-        font-size: 59px;
+        font-size: 60px;
         margin-bottom: 35px;
     }
     
